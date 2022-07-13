@@ -56,7 +56,7 @@ print(print(test: 3))
  - 다른 플랫폼과 커뮤니케이션할 경우(예를 들어, 서버와 통신할 때), 결국 기본 자료형으로 사용해야 할 경우 */
 enum Gender:String {
     case man = "남성"
-    case woman = "여성"
+    case woman // "woman"
     case nothing // "nothing"
 }
 
@@ -75,23 +75,23 @@ default: print("선택 안함")
 }
 
 enum HTTPCode: Int {
-    case OK // 0
-    case NO_PAGE // 1
+    case OK = 200
+    case SEE_OTHER = 303
     case NOT_FOUND = 404
-    case SERVER_ERROR // 405
+    case SERVER_ERROR = 500
     
     func showStatus()->String {
         switch self {
         case .OK : return "OK"
-        case .NO_PAGE : return "잘못된 접근"
+        case .SEE_OTHER : return "요구한 데이터를 변경하지 않음"
         case .NOT_FOUND : return "페이지를 찾을 수 없음"
-        case .SERVER_ERROR : return "긴급점검"
+        case .SERVER_ERROR : return "서버 긴급점검"
         }
     }
 }
 
-var networkStatus: HTTPCode = .NO_PAGE
-let resultStatus = networkStatus.showStatus()
+var networkStatus: HTTPCode = .SEE_OTHER
+let resultStatus = "\(networkStatus.rawValue) : " + networkStatus.showStatus()
 print(resultStatus)
 /* 상태 체크를 필요한 부분마다 swich 구문을 반복해서 작성하는 것이 아니라
  열거형 정의할 때, 메서드를 만들어 줘서 사용할 수 있음.
