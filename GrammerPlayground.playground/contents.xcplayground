@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <playground version='6.0' target-platform='ios' buildActiveScheme='true' importAppTypes='true'>
     <pages>
+        <page name='enum'/>
         <page name='7회차'/>
         <page name='8회차 01'/>
         <page name='8회차 02 - 클래스와 구조체'/>
-        <page name='enum'/>
+        <page name='9회차'/>
     </pages>
 </playground>
